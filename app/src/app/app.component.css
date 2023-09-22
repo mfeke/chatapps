@@ -1,0 +1,18 @@
+.profile-img-home{
+    border-radius: 50%;
+    height: 70px;
+    width: 65px;
+}
+.profile-header-home, .email-home{
+    margin-left: 10px;
+}
+.bg-s{
+   
+    background-color: #eff1f3;
+}
+
+.bg-h{
+    margin: 0px;
+    padding: 0px;
+ height: 76vh;
+}
