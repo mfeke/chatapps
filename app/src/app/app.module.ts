@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ChatsMessageComponent } from './components/chats-message/chats-message.component';
+import { ChatsHomeComponent } from './components/chats-home/chats-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ChatsMessageComponent
+    ChatsMessageComponent,
+    ChatsHomeComponent
   ],
   imports: [
     BrowserModule,
