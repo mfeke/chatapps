@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ChatsMessageComponent } from './components/chats-message/chats-message.component';
 import { ChatsHomeComponent } from './components/chats-home/chats-home.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ChatsMessageComponent,
-    ChatsHomeComponent
+    ChatsHomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
