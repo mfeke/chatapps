@@ -16,7 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
     ChatsMessageComponent,
     ChatsHomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

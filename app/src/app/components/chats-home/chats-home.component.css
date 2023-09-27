@@ -1,0 +1,46 @@
+.profile-img-home{
+    border-radius: 50%;
+    height: 70px;
+    width: 65px;
+}
+.profile-header-home, .email-home{
+    margin-left: 10px;
+}
+
+.logged-in {
+    color: green;
+  
+  }
+.bg-s{
+   
+    background-color: #eff1f3;
+    
+}
+a#exit {
+    margin-right: -60px; 
+    
+    color: white;
+    background: green;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    
+  }
+
+  .logout {
+    text-align: right; 
+    margin-top: -50px;
+  }
+
+.bg-h{
+    
+    margin: 0px;
+    padding: 0px ;
+    height: 76vh;
+    
+}
+
+footer {
+    margin-top: 27em;
+}
+
