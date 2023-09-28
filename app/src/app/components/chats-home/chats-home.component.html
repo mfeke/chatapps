@@ -1,14 +1,7 @@
-
-<div class=" w-1px">
-    <div class="container ">
-        <div class="d-flex">
-        <img src={{currentUser.image}} alt="" class='currentUser'>
-        <p class="mt-4" style="margin-left: 10px;"> <span class="logged-in">●</span> {{Austin.about}}</p>
-        </div>
-
-        <h5>{{currentUser.username}}</h5>
-    </div>
-    <div class="container ">
+<div class="chat-container clearfix">
+  
+  <div class=" w-1px">
+    <div class="" style="border-right: 6px black solid; height:579px ;  width: 250px;">
    <div class="container d-flex " style="margin-top:40px; ">
       <img src={{Austin.image}} style="width: 50px; height: 50px; border-radius: 100%;" alt="">
       <div class="container">
@@ -17,50 +10,59 @@
         <p class="logout"><a id="exit" href="#" (click)="Logout()">Exit Chat</a></p>
       </div>
     </div>
-    
-    <div class=" w-1px">
-      <div class="container ">
-     <div class="container d-flex " style="margin-top:40px; ">
-        <img src={{Kakashi.image}} style="width: 50px; height: 50px; border-radius: 100%;" alt="">
-        <div class="container">
-          <h6><b>{{Kakashi.name}}</b></h6>
-          <p> <span class="logged-in">●</span> {{Kakashi.about}}</p>
-        </div>
+    <hr>
+    <div class="container d-flex " style="margin-top:40px; ">
+      <img src={{Austin.image}} style="width: 50px; height: 50px; border-radius: 100%;" alt="">
+      <div class="container">
+        <h6><b>{{Austin.name}}</b></h6>
+        <p> <span class="logged-in">●</span> {{Austin.about}}</p>
+        <!-- <p class="logout"><a id="exit" href="#">Exit Chat</a></p> -->
       </div>
     </div>
+    
+    <div class="container d-flex " style="margin-top:40px; ">
+      <img src={{Austin.image}} style="width: 50px; height: 50px; border-radius: 100%;" alt="">
+      <div class="container">
+        <h6><b>{{Austin.name}}</b></h6>
+        <p> <span class="logged-in">●</span> {{Austin.about}}</p>
+        <!-- <p class="logout"><a id="exit" href="#">Exit Chat</a></p> -->
       </div>
+    </div>
+
+
     </div> 
 
-    <div class=" w-1px">
-      <div class="container ">
-     <div class="container d-flex " style="margin-top:5px; ">
-        <img src={{Naruto.image}} style="width: 50px; height: 50px; border-radius: 100%;" alt="">
-        <div class="container">
-          <h6><b>{{Naruto.name}}</b></h6>
-          <p> <span class="logged-in">●</span> {{Naruto.about}}</p>
-          </div>
-      </div>
-    
-       
-      
-      <footer>
-        
-        <div class="container d-flex">
-          <input type="text" class="form-control w-100 mb-3" placeholder="Typing a message"       style="margin-right: 20px;">
-  
-          <button class="mb-3 bg-secondary text-light" style="border-radius: 50% ;">
-  
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
-              <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
-            </svg>
-  
-          </button>
-        </div>
-      </footer>
-      
-    </div> 
     
   
   </div>
+
+  <div class="container all_users"> 
+
+
+    <footer>
+        
+      <div class="container d-flex">
+        <input type="text" class="form-control w-100 mb-3" placeholder="Typing a message"  style="margin-right: 60px;">
+  
+        <button class="mb-3 bg-secondary text-light" style="border-radius: 50% ;">
+  
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+            <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+          </svg>
+  
+        </button>
+      </div>
+    </footer>
+  </div>
+
+
+  
+
+</div>
+
+
+
+
+
   
   
