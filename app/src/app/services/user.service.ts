@@ -25,6 +25,10 @@ export class UserService {
       password
     }, httpOptions);
   }
-
-
+  register(username: string, image: string, password: string): Observable<any> {
+    return this.http.post(this.api+ 'signUp', {
+      username,
+      password
+    }, httpOptions);
+  }
 }
