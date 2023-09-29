@@ -12,7 +12,7 @@ export class ChatsHomeComponent {
   isProfile = false;
 
   currentUser:any
-  Users = []
+  Users:any [] = []
   Naruto={
     name:"Lulama",
     about:"online",
@@ -34,7 +34,7 @@ export class ChatsHomeComponent {
 
   ngOnInit(): void {
     this.currentUser = this.tokenService.getUser();
-    console.log(this.currentUser)
+   
     this.getAllUser()
   }
   
@@ -49,9 +49,10 @@ export class ChatsHomeComponent {
   }
   getAllUser():void{
     this.chatService.getAllUser().subscribe(data=>{
-     this.Users = data
-    //  const filtedUsers = this.Users.filter((x:any) =>  x.username == this.currentUser.username)
-      console.log(1+1)
+     const filtedUsers = data.filter((x:any) =>  x._id !== this.currentUser._id)
+     this.Users = filtedUsers
+
+     console.log(this.Users)
       
     })
 
