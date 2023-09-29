@@ -10,7 +10,7 @@ import { TokenstorageService } from 'src/app/services/tokenstorage.service';
 export class ChatsHomeComponent {
 
   isProfile = false;
-
+  selectedUser?:any
   currentUser:any
   Users:any [] = []
   Naruto={
@@ -31,7 +31,7 @@ export class ChatsHomeComponent {
     image:"https://i.postimg.cc/d1YmTL9W/Kakashi-Hatake-1.webp"
   }
   constructor( private tokenService: TokenstorageService, private chatService: ChatsService){}
-
+  
   ngOnInit(): void {
     this.currentUser = this.tokenService.getUser();
    
@@ -55,6 +55,10 @@ export class ChatsHomeComponent {
      console.log(this.Users)
       
     })
+
+  }
+  onSelectedUser(user:any):void{
+    this.selectedUser = user
 
   }
 
