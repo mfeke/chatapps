@@ -29,11 +29,9 @@
   
   </div>
 
-  <div class="container all_users"> 
-
-
+  <div class="container all_users">
     <footer>
-        
+<!--         
       <div class="container d-flex">
         <input type="text" class="form-control w-100 mb-3" placeholder="Typing a message"  style="margin-right: 60px;">
   
@@ -44,7 +42,18 @@
           </svg>
   
         </button>
+      </div> -->
+      <router-outlet></router-outlet>
+
+      <div *ngFor="let message of messageList">
+          <li>
+            {{message}}
+          </li>  
       </div>
+      
+      <input [(ngModel)]="newMessage" (keyup)="$event.keyCode == 13  && sendMessage"/>
+      <button (click)="sendMessage()">Send Message</button>
+     
     </footer>
   </div>
 

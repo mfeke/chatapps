@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ChatsService } from 'src/app/services/chats.service';
+import { ChattingService } from 'src/app/services/chatting.service';
 import { TokenstorageService } from 'src/app/services/tokenstorage.service';
 
 @Component({
@@ -8,9 +9,12 @@ import { TokenstorageService } from 'src/app/services/tokenstorage.service';
   styleUrls: ['./chats-home.component.css']
 })
 export class ChatsHomeComponent {
+  newMessage?:  string;
+  messageList: string[] = [];
+
+
 
   isProfile = false;
-
   currentUser:any
   Users:any [] = []
   Naruto={
@@ -30,12 +34,15 @@ export class ChatsHomeComponent {
     about:"online",
     image:"https://i.postimg.cc/d1YmTL9W/Kakashi-Hatake-1.webp"
   }
-  constructor( private tokenService: TokenstorageService, private chatService: ChatsService){}
+  constructor( private tokenService: TokenstorageService, private chatService: ChatsService, private ChattingService: ChattingService){}
 
   ngOnInit(): void {
     this.currentUser = this.tokenService.getUser();
-   
-    this.getAllUser()
+    // this.getAllUser()
+
+    this.ChattingService.getNewMessage().subscribe((message: string) => {
+      this.messageList.push(message);
+    })
   }
   
   toggle(){
@@ -47,16 +54,19 @@ export class ChatsHomeComponent {
     window.location.assign("/login")
 
   }
-  getAllUser():void{
-    this.chatService.getAllUser().subscribe(data=>{
-     const filtedUsers = data.filter((x:any) =>  x._id !== this.currentUser._id)
-     this.Users = filtedUsers
+  // getAllUser():void{
+  //   this.chatService.getAllUser().subscribe(data=>{
+  //    const filtedUsers = data.filter((x:any) =>  x._id !== this.currentUser._id)
+  //    this.Users = filtedUsers
 
-     console.log(this.Users)
+  //    console.log(this.Users)
       
-    })
+  //   })
 
+  // }
+
+  sendMessage() {
+    this.ChattingService.sendMessage(this.newMessage);
+    this.newMessage = '';
   }
-
- 
 }
