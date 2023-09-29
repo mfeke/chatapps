@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChatsService } from 'src/app/services/chats.service';
 import { TokenstorageService } from 'src/app/services/tokenstorage.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ChatsHomeComponent {
   isProfile = false;
 
   currentUser:any
-
+  Users = []
   Naruto={
     name:"Lulama",
     about:"online",
@@ -29,12 +30,14 @@ export class ChatsHomeComponent {
     about:"online",
     image:"https://i.postimg.cc/d1YmTL9W/Kakashi-Hatake-1.webp"
   }
-  constructor( private tokenService: TokenstorageService){}
+  constructor( private tokenService: TokenstorageService, private chatService: ChatsService){}
 
   ngOnInit(): void {
     this.currentUser = this.tokenService.getUser();
     console.log(this.currentUser)
+    this.getAllUser()
   }
+  
   toggle(){
     this.isProfile = !this.isProfile;
     alert('Asutin')
@@ -42,6 +45,15 @@ export class ChatsHomeComponent {
   Logout():void{
     this.tokenService.signOut()
     window.location.assign("/login")
+
+  }
+  getAllUser():void{
+    this.chatService.getAllUser().subscribe(data=>{
+     this.Users = data
+    //  const filtedUsers = this.Users.filter((x:any) =>  x.username == this.currentUser.username)
+      console.log(1+1)
+      
+    })
 
   }
 

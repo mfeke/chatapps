@@ -28,6 +28,7 @@ export class UserService {
     return this.http.get<any>(this.api+ 'get', httpOptions);
 
   }
+ 
 
   register(username: string, image: string, password: string): Observable<any> {
     return this.http.post(this.api+ 'signUp', {
