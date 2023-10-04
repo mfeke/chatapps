@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TokenstorageService } from 'src/app/services/tokenstorage.service';
 import { UserService } from 'src/app/services/user.service';
+import { ToastrService } from 'ngx-toastr';
+import {Router} from '@angular/router'; // import router from angular router
 
 @Component({
   selector: 'app-login',
@@ -8,13 +10,16 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  logo = "https://i.postimg.cc/66br41Cb/thetha-removebg-preview.png"
+  email= 'Email address'
+  password ="password"
   form = {
     username: "",
     password: ""
   }
   roles: string[] = [];
-  constructor(private userService : UserService , private tokenStorage: TokenstorageService){}
+  constructor(private userService : UserService , private tokenStorage: TokenstorageService, 
+    private toastr: ToastrService, private route:Router ){}
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -31,7 +36,8 @@ export class LoginComponent {
         console.log(data)
         this.tokenStorage.saveToken(data.accesstoken);
         this.tokenStorage.saveUser(data);
-        window.location.assign("/home")
+        this.toastr.success('User is successfully Login!');
+        this.route.navigate(['/home']);
 
       }
     })

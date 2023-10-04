@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { concatAll } from 'rxjs';
 import { ChatsService } from 'src/app/services/chats.service';
+import { ChattingService } from 'src/app/services/chatting.service';
 import { TokenstorageService } from 'src/app/services/tokenstorage.service';
 
 @Component({
@@ -8,40 +10,28 @@ import { TokenstorageService } from 'src/app/services/tokenstorage.service';
   styleUrls: ['./chats-home.component.css']
 })
 export class ChatsHomeComponent {
+  newMessage?:  string;
+  messageList: string[] = [];
+  msg:any[]=[]
 
-  isProfile = false;
+
   selectedUser?:any
   currentUser:any
   Users:any [] = []
-  Naruto={
-    name:"Lulama",
-    about:"online",
-    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7U5LakdIoyhxWRiuw47zH9E-enVVAn58GRhYhDQuvTSJNcGLLKb3eiu-dTMn1Q3UjP8k&usqp=CAU"
-  }
 
-  Kakashi={
-    name:"Austin",
-    about:"online",
-    image:"https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png"
-  }
+  constructor( private tokenService: TokenstorageService, private chatService: ChatsService, private ChattingService: ChattingService){}
 
-  Austin={
-    name:"Xhanti",
-    about:"online",
-    image:"https://i.postimg.cc/d1YmTL9W/Kakashi-Hatake-1.webp"
-  }
-  constructor( private tokenService: TokenstorageService, private chatService: ChatsService){}
-  
   ngOnInit(): void {
     this.currentUser = this.tokenService.getUser();
-   
     this.getAllUser()
+    // this.getMessage()
+    this.ChattingService.getNewMessage().subscribe((message: string) => {
+      this.messageList.push(message);
+      // this.messageList = [""]
+    })
   }
   
-  toggle(){
-    this.isProfile = !this.isProfile;
-    alert('Asutin')
-  }
+
   Logout():void{
     this.tokenService.signOut()
     window.location.assign("/login")
@@ -49,18 +39,23 @@ export class ChatsHomeComponent {
   }
   getAllUser():void{
     this.chatService.getAllUser().subscribe(data=>{
-     const filtedUsers = data.filter((x:any) =>  x._id !== this.currentUser._id)
+     const filtedUsers = data.filter((x:any) =>  x.username !== this.currentUser.username)
      this.Users = filtedUsers
-
-     console.log(this.Users)
       
     })
-
   }
+  
   onSelectedUser(user:any):void{
     this.selectedUser = user
-
+    
+    localStorage.setItem("user",JSON.stringify(this.selectedUser))
+    
   }
 
- 
+
+sendMessage() {
+    this.ChattingService.sendMessage(this.newMessage);
+    this.newMessage = '';
+  }
+
 }

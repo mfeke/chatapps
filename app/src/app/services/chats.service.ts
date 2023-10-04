@@ -20,4 +20,17 @@ export class ChatsService {
   getAllUser():Observable<any>{
     return this.http.get<any>(this.api + "getAllUser", httpOptions)
   }
+  sendMessage(message: string, from: string, to:string): Observable<any> {
+    const apiUrl = `${this.api}send`;
+  
+    return this.http.post<any>(apiUrl, {from,to, message}, httpOptions);
+  }
+  getMessage (): Observable<any> {
+    const apiUrl = `${this.api}/getMessage`;
+    return this.http.get<any>(apiUrl);
+  }
+  
+  login(username: string, password: string): Observable<any> {
+    return this.http.post<any>(this.api+ 'signIn', { username,password}, httpOptions);
+  }
 }
