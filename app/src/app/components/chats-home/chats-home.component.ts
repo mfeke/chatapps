@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { concatAll } from 'rxjs';
+import { concatAll, from } from 'rxjs';
 import { ChatsService } from 'src/app/services/chats.service';
 import { ChattingService } from 'src/app/services/chatting.service';
 import { TokenstorageService } from 'src/app/services/tokenstorage.service';
@@ -60,16 +60,20 @@ export class ChatsHomeComponent {
       let array = []
       array = this.container.filter((data:any)=> data.users.some((x:any)=> x == this.selectedUser.username &&this.currentUser.username))
       this.msgList = array
+      console.log(array)
     }
     
   }
 
 
-sendMessage() {
 
-// this.chatService.sendMessage(th)
-    // this.ChattingService.sendMessage(this.newMessage);
-    // this.newMessage = '';
+  sendMessage():void{
+    // console.log(this.message)
+   
+  this.chatService.sendMessage(this.message, this.currentUser.username,this.selectedUser.username).subscribe(data =>{
+    console.log(data)
+  })
+    
   }
 
 }

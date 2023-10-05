@@ -15,7 +15,11 @@
                       <p class="fw-bold mb-0" style="font-size: 21px;">{{currentUser.username}}</p>
                     </div>
                   </div>
+<<<<<<< HEAD
                   <div class="pt-1">
+=======
+                   <div class="pt-1">
+>>>>>>> 9bc416bfb1cc588d5f775f11816f18b35ec94eea
                     <p class="small text-muted mb-1">Just now</p>
                     <span class="badge bg-danger float-end">1</span>
                   </div> 
@@ -51,25 +55,32 @@
 </section> -->
 
 <div class="d-flex">
-  <div class="con w-50 ">
-    <ul class="list-unstyled mb-0 mt-4"  *ngFor="let user of Users">
-      <li class="p-2 border-bottom" style="background-color: #eee;">
-        <a  class="d-flex justify-content-between" style="border: 1px solid black;" [class.selected]="user == selectedUser" (click)="onSelectedUser(user)">
-          <div class="d-flex flex-row">
-            <img [src]="user.image" alt="avatar"
-              class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60" height="60">
-            <div class="pt-1">
-              <p class="fw-bold mb-0">{{user.username}}</p>
-            </div>
-          </div>
+  <div class="contacts-container">
+    <h1>Chats</h1>
+    <input type="text" id="search-input" placeholder="Search contacts" >
+    <ul id="contacts-list">
+      <div class="contsiner">
+        </div>
+      </ul>
+  <ul class="list-unstyled mb-0 mt-4"  *ngFor="let user of Users">
+    <li class="p-2 box border-bottom" style="background-color: #eee;" >
+      <a  class="d-flex justify-content-between"[class.selected]="user == selectedUser" (click)="onSelectedUser(user)">
+        <div class="d-flex flex-row">
+          <img [src]="user.image" alt="avatar"
+            class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60" height="60">
           <div class="pt-1">
-            <p class="small text-muted mb-1">Just now</p>
-            <span class="badge bg-danger float-end">1</span>
+            <p class="fw-bold mb-0">{{user.username}}</p>
           </div>
-        </a>
-      </li>
-      
-    </ul>
+        </div>
+        <div class="pt-1">
+          <p class="small text-muted mb-1"></p>
+          <span class="badge bg-danger float-end"></span>
+        </div>
+      </a>
+    </li>
+    
+  </ul>
+  
   </div>
  
   <div class="container">
@@ -86,12 +97,20 @@
       </div>
       <hr>
       <div class="vh-50">
-        <div class="msg-container d-flex mb-2" *ngFor="let msg of msgList">
+        <div class="msg-container d-flex mb-2" *ngFor="let msg of msgList " >
           <img [src]="currentUser.image" alt="" class="msg-profile">
-          <div class="msg-box p-2">
+          <div class=" p-2" [ngClass]="{'msg-box': msg.sender === currentUser.Username}">
           <p>{{msg.text}}</p>
           </div>
         </div>
+        
+          <div class="msg-container d-flex mb-2 " >
+          <img [src]="currentUser.image" alt="" class="msg-profile">
+          <div class="msg-box-left p-2">
+          <p>thuua</p>
+          </div>
+        </div>
+        
         <!-- <div class="container " *ngFor="let msg of msgList">
           <div class="" style="height: 20px;">{{msg.text}}</div>
         </div> -->
@@ -99,7 +118,7 @@
       <hr>
       <div class="container d-flex">
         <input type="text" class="message-text w-100 " [(ngModel)]="message">
-        <button class="btn bg-dark  send text-white">
+        <button class="btn bg-dark  send text-white" (click)="sendMessage()">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
             <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
           </svg>
@@ -110,3 +129,6 @@
    
   </div>
 </div>
+
+
+
