@@ -1,21 +1,28 @@
 <section class="vh-100">
   <app-header></app-header>
-  <div class="container-fluid h-custom">
+
+
+
+ <div class="container-fluid h-custom">
+
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
         <img [src]="logo"
           class="img-fluid" alt="Sample image">
       </div>
+
+
+
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <div>
-
+          <div class="card p-3" >
           <!-- Email input -->
           <div class="form-outline mb-4">
             <label class="form-label pb-2 pl-2" for="form3Example3"><b>{{email |uppercase}}</b></label>
             <input type="email" id="form3Example3" class="form-control form-control-lg"
               placeholder="Enter a valid Username " [(ngModel)]="form.username" />
           </div>
-        
+
 
           <!-- Password input -->
           <div class="form-outline mb-3">
@@ -30,11 +37,13 @@
             <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a routerLink="/register"
                 class="link-danger">Register</a></p>
           </div>
-
-        </div>
       </div>
     </div>
+        <!-- </div> -->
+      </div>
   </div>
+</div>
+
   <div
     class="d-flex flex-column flex-md-row text-center t justify-content-center py-4 px-4 px-xl-5 bg-primary">
     <!-- Copyright -->
@@ -43,6 +52,6 @@
     </div>
     <!-- Copyright -->
 
-   
+
   </div>
 </section>
