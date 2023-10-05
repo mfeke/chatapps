@@ -15,3 +15,15 @@ height: calc(100% - 73px);
 height: 100%;
 }
 }
+.card {
+
+  box-shadow: 0px 10px 20px #2fd8a033;
+}
+ .btn{
+  background: black;
+  border: white;
+}
+.btn:hover {
+  background:li
+
+}
