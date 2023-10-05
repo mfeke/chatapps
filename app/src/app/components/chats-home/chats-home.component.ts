@@ -57,10 +57,10 @@ export class ChatsHomeComponent {
   onSelectedUser(user:any):void{
     this.selectedUser = user
     if(this.selectedUser){
-      let array = []
-      array = this.container.filter((data:any)=> data.users.some((x:any)=> x == this.selectedUser.username &&this.currentUser.username))
-      this.msgList = array
-      console.log(array)
+      // let array = []
+      // array = this.container.filter((data:any)=> data.users.some((x:any)=> x == this.selectedUser.username &&this.currentUser.username))
+      // this.msgList = array
+      // console.log(array)
     }
     
   }
