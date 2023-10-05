@@ -1,0 +1,19 @@
+.contacts-container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 300px;
+    margin: 20px auto;
+    height: 600px;
+    
+}
+
+#search-input {
+   padding: 10px;
+    border-radius: 10px;
+}
+
+.box {
+    border-radius: 10px; 
+}
