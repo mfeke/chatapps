@@ -19,7 +19,7 @@ export class ChatsMessageComponent  {
   selected!:any
   currentUser:any
   message = ""
-  messages: any[] =[]
+  msgs: any = [];
   container:any
   data = {
     user:"",
@@ -34,22 +34,28 @@ export class ChatsMessageComponent  {
     if(this.user1){
       this.selected = this.user1
       console.log(this.selected)
-      // this.messages =  this.container.filter((data:any)=> data.users.some((x:any)=> x == this.currentUser.username && data.users[1] == this.selected.username)  )
-
-        console.log(this.messages)
+      this.msgs =  this.container.filter((data:any)=> data.users.some((x:any)=> x == this.currentUser.username && data.users[1] == this.selected.username)  )
+      // console.log(this.msgs)
     }
+ 
   }
+  
   ngOnInit() {
     this.currentUser = this.tokenService.getUser();
-    this.ChattingService.getNewMessage().subscribe((message: any) => {
-      this.messages.push(message)
-      console.log(this.messages)
+    
+    this.ChattingService.getNewMessage().subscribe((message: string) => {
+      const msg1: any[] = []
+      if(message){
+        this.msgs = msg1
+         msg1.push(JSON.parse(message))  
+          console.log(msg1)
+      }
     })
+
+
     this.chatService.getMessage().subscribe(data=>{
       this.container = data
-      if(this.selected){ 
-        // console.log(this.messages)
-      }
+      console.log(data)
     })
   }
   
@@ -58,10 +64,8 @@ export class ChatsMessageComponent  {
   send():void{
     this.data.text= this.message
     this.data.user= this.currentUser.username
-    this.data.to = this.selected
-    // this.data.text 
+    this.data.to = this.selected.username 
     console.log(this.data)
-  //   this.data = this.message,
   // // this.chatService.sendMessage( this.currentUser.username,this.user1.username).subscribe(data=>{
     this.ChattingService.sendMessage(JSON.stringify(this.data));
 

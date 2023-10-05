@@ -12,9 +12,9 @@
           </a>            
       </ul>
     </div>
-    <div *ngFor=" let msg of messages">
-        <p>{{msg.messages}}</p>
 
+    <div *ngFor=" let msg of msgs">
+      <p>{{msg.text}}</p>
     </div>
     <div class="contaner">
       <input type="text" [(ngModel)]="message" name="" id="">

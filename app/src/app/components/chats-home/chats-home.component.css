@@ -1,0 +1,44 @@
+.profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
+.text-on{
+    font-size: 15PX;
+}
+.p-2{
+    padding-bottom: 0px;
+    height: 60px;
+}
+.po{
+    position: absolute;
+    left: 118px;
+    top: 50px;
+    border: 2px solid white;
+    border-radius: 50px;
+}
+.vh-50{
+  height: 580px;
+}
+input{
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.send{
+    margin-left: 20px;
+}
+.msg-profile{
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+}
+.msg-box{
+    background-color: black;
+    color: white;
+    /* height: 50px; */
+    width: 300px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-left: 15px;
+    border-bottom-left-radius: 0px;
+}
