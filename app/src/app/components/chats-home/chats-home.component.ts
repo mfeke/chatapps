@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { concatAll } from 'rxjs';
+import { concatAll, from } from 'rxjs';
 import { ChatsService } from 'src/app/services/chats.service';
 import { ChattingService } from 'src/app/services/chatting.service';
 import { TokenstorageService } from 'src/app/services/tokenstorage.service';
@@ -10,24 +10,33 @@ import { TokenstorageService } from 'src/app/services/tokenstorage.service';
   styleUrls: ['./chats-home.component.css']
 })
 export class ChatsHomeComponent {
-  newMessage?:  string;
   messageList: string[] = [];
-  msg:any[]=[]
-
+  msgList:any=[]
+  container:any
+  message = ""
 
   selectedUser?:any
   currentUser:any
   Users:any [] = []
 
   constructor( private tokenService: TokenstorageService, private chatService: ChatsService, private ChattingService: ChattingService){}
+  
 
+  ngOnChanges() {
+    
+  
+ 
+  }
   ngOnInit(): void {
     this.currentUser = this.tokenService.getUser();
+    console.log(this.currentUser)
     this.getAllUser()
-    // this.getMessage()
-    this.ChattingService.getNewMessage().subscribe((message: string) => {
-      this.messageList.push(message);
-      // this.messageList = [""]
+    // this.ChattingService.getNewMessage().subscribe((message: string) => {
+    //   this.messageList.push(message);
+    // })
+
+    this.chatService.getMessage().subscribe(data=>{
+      this.container = data
     })
   }
   
@@ -47,15 +56,24 @@ export class ChatsHomeComponent {
   
   onSelectedUser(user:any):void{
     this.selectedUser = user
-    
-    localStorage.setItem("user",JSON.stringify(this.selectedUser))
+    if(this.selectedUser){
+      let array = []
+      array = this.container.filter((data:any)=> data.users.some((x:any)=> x == this.selectedUser.username &&this.currentUser.username))
+      this.msgList = array
+      console.log(array)
+    }
     
   }
 
 
-sendMessage() {
-    this.ChattingService.sendMessage(this.newMessage);
-    this.newMessage = '';
+
+  sendMessage():void{
+    // console.log(this.message)
+   
+  this.chatService.sendMessage(this.message, this.currentUser.username,this.selectedUser.username).subscribe(data =>{
+    console.log(data)
+  })
+    
   }
 
 }
