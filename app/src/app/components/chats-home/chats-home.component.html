@@ -37,17 +37,21 @@
         </div>
       </div>
       <hr>
-      <div class="vh-50">
-        <div class="msg-container d-flex mb-2" *ngFor="let msg of msgList " >
-          <img [src]="currentUser.image" alt="" class="msg-profile">
-          <div class=" p-2" [ngClass]="{'msg-box': msg.sender === currentUser.Username}">
-          <p>{{msg.text}}</p>
+      <!-- <div class="vh-50">
+        <div class="msg-container d-flex mb-2" *ngFor="let msg of msgList">
+          <div class="p-2" [ngClass]="{'msg-box-right': msg.sender === currentUser.Username, 'msg-box-left': msg.sender !== currentUser.Username}">
+            <p>{{ msg.text }}</p>
           </div>
         </div>
-         <div class="container " *ngFor="let msg of msgList">
-          <div class="" style="height: 20px;">{{msg.text}}</div>
-        </div> 
+      </div>       -->
+      <div class="vh-50">
+        <div class="msg-container d-flex mb-2" *ngFor="let msg of msgList">
+          <div class="p-2" [ngClass]="{'msg-box': true, 'msg-box-sender': msg.sender === 'currentUser', 'msg-box-other': msg.sender !== 'currentUser'}">
+            <p>{{ msg.text }}</p>
+          </div>
+        </div>
       </div>
+      
       <hr>
       <div class="container d-flex">
         <input type="text" class="message-text w-100 " [(ngModel)]="message">
