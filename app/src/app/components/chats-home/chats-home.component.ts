@@ -22,11 +22,11 @@ export class ChatsHomeComponent {
 
 
   constructor( private tokenService: TokenstorageService, private chatService: ChatsService, private ChattingService: ChattingService){}
-  
+
 
   ngOnChanges() {
-   
- 
+
+
   }
   ngOnInit(): void {
     this.currentUser = this.tokenService.getUser();
@@ -37,7 +37,7 @@ export class ChatsHomeComponent {
       this.container = data
     })
   }
-  
+
 
   Logout():void{
     this.tokenService.signOut()
@@ -48,28 +48,36 @@ export class ChatsHomeComponent {
     this.chatService.getAllUser().subscribe(data=>{
      const filtedUsers = data.filter((x:any) =>  x.username !== this.currentUser.username)
      this.Users = filtedUsers
-      
+
     })
   }
-  
+
   onSelectedUser(user:any):void{
     this.selectedUser = user
     if(this.selectedUser){
       let array = []
+
       array = this.container.filter((data:any)=> data.users.some((x:any)=> x == this.selectedUser.username &&this.currentUser.username))
       this.msgList = array
       console.log(array)
     }
-    
+
   }
 
 
 
   sendMessage():void{
+    const data:any = {
+      text:this.message,
+      users:[this.currentUser.username, this.selectedUser.username],
+      sender:this.currentUser.username
+    }
+    this.msgList.push(data)
+    console.log(data)
   this.chatService.sendMessage(this.message, this.currentUser.username,this.selectedUser.username).subscribe(data =>{
     console.log(data)
   })
-    
+  this.message = ''
   }
 
 }

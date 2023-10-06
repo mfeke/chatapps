@@ -1,4 +1,29 @@
+header{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
+hr{
+  margin: 0;
+}
+
+.headerr{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  color: #888;
+  font-size: 35px;
+}
+
+footer{
+  bottom: 20px;
+  width: 100%;
+  margin-top: 10px;
+  flex-basis: 5%;
+}
 
 .profile{
     width: 50px;
@@ -7,10 +32,12 @@
 }
 .text-on{
     font-size: 15PX;
+    padding: 0;
+    margin: 0;
 }
 .p-2{
-    padding-bottom: 0px;
     height: 60px;
+    flex-basis: 15%;
 }
 .po{
     position: absolute;
@@ -57,6 +84,10 @@ input{
     position: relative;
     left: 340px;
 }
+
+/* .message-text{
+  height: 20px;
+} */
 .contacts-container {
     background-color: #fff;
     padding: 20px;
@@ -70,16 +101,26 @@ input{
 
 #search-input {
    /* padding: 10px; */
-    border-radius: 6px;
-    
+    border-radius: 4px;
+    border: none;
+    background-color: rgb(189, 187, 187);
+    padding-left: 20px;
+    padding: 7px;
+    color: white;
+
 }
 .sele{
-    width: 200px;
+    width: 240px;
 }
+::placeholder {
+  color:white;
+  opacity: 1; /* Firefox */
+}
+
 .avatar{
     padding: 4px;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
 }
 .box {
     border-radius: 10px;
@@ -87,9 +128,11 @@ input{
 .bl{
     border-right: 1px solid gray;
     height: 642px;
-    
+
 
 }
+
+
 
 .profile-container {
     background-color: #fff;
@@ -116,3 +159,93 @@ input{
     color: #888;
 }
 
+.container-fluid{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.home-chats{
+  padding-top: 8px;
+  height: 500px;
+  overflow: auto;
+
+}
+
+.container-m .arrow {
+  width: 12px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+  top: 6px;
+  right: -1px;
+}
+
+.container-m .arrow .outer {
+  width: 0;
+  height: 0;
+  border-right: 20px solid #000000;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container-m .arrow .inner {
+  width: 0;
+  height: 0;
+  border-right: 20px solid #ffffff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 2px;
+}
+
+.container-m .message-body {
+  float: left;
+  width: 300px;
+  height: auto;
+  /* border: 1px solid #CCC; */
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 6px 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+
+.container-m .message-body-2   {
+  float: right;
+  width: auto;
+  height: auto;
+  display: flex;
+  max-width: 300px;
+
+  flex-direction: column;
+
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  /* padding: 4px 3px; */
+  border-radius: 8px;
+  justify-content: center;
+  padding: 7px;
+}
+/* .mt-10{
+  margin-top: 80px;
+} */
+.container-m .message-body p {
+  margin: 0;
+
+}
+
+.container-m .message-body-2 p{
+  overflow: hidden;
+  height: auto;
+  word-wrap: break-word;
+  margin: 0;
+}
