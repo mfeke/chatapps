@@ -10,7 +10,6 @@ import { TokenstorageService } from 'src/app/services/tokenstorage.service';
   styleUrls: ['./chats-home.component.css']
 })
 export class ChatsHomeComponent {
-  messageList: string[] = [];
   msgList:any=[]
   container:any
   message = ""
