@@ -44,14 +44,23 @@
           </div>
         </div>
       </div>       -->
-      <div class="vh-50">
-        <div class="msg-container d-flex mb-2" *ngFor="let msg of msgList">
-          <div class="p-2" [ngClass]="{'msg-box': true, 'msg-box-sender': msg.sender === 'currentUser', 'msg-box-other': msg.sender !== 'currentUser'}">
-            <p>{{ msg.text }}</p>
-          </div>
-        </div>
-      </div>
       
+      <div class="container mb-2" *ngFor="let msg of msgList">
+          <div class="row " >
+          <p class="" *ngIf= "msg.sender == currentUser.username">
+            {{msg.text}}
+          </p>
+          </div>
+          <div class="row justify-content-end" >
+            <p class=" w-50" *ngIf="msg.sender !== currentUser.username">{{msg.text}}</p>
+            
+          </div>
+          <!-- <div class="p-2" [ngClass]="{'msg-box': true, 'msg-box-sender': msg.sender === 'currentUser', 'msg-box-other': msg.sender !== 'currentUser'}">
+            <p>{{ msg.text }}</p>
+          </div> -->
+        
+      </div>
+
       <hr>
       <div class="container d-flex">
         <input type="text" class="message-text w-100 " [(ngModel)]="message">
