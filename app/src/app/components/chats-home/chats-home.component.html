@@ -1,20 +1,25 @@
 <app-sidebar></app-sidebar>
 <div class="d-flex">
-  <div class="container-f bl pt-2" style=" margin-left:100px; width: 230px;">
+  <div class="container-f bl pt-2" style=" margin-left:100px; width: 350px;">
     <h4 class="mt-2">Chats</h4>
+
+    <input type="text" id="search-input" class=" sele mt-2 mb-3" placeholder="Search contacts" >
+    <ul class="list-unstyled mt-1 "  *ngFor="let user of Users">
+      <li class="d-flex box sele p-2" [class.selected]="user == selectedUser" (click)="onSelectedUser(user)" style="background-color: #eee;">
+        <img [src]="user.image" alt="avatar"
+        class="rounded-circle avatar d-flex align-self-center me-1 shadow-1-strong">
+        <p class="fw-bold texr-dark mb-0 "style="color:black;">{{user.username}}</p>
+      </li>
+    </ul>
     <!-- <input type="text" id="search-input" class="p-1" placeholder="Search contacts" > -->
-    <ul id="contacts-list">
-      <div class="contsiner">
-      </div>
-      </ul>
-  <ul class="list-unstyled mb-0 mi mt-4"  *ngFor="let user of Users" >
+  <!-- <ul class="list-unstyled mb-0 mi mt-4"  *ngFor="let user of Users" >
     <li class="p-2 box sele border-bottom" style="background-color: #eee;" >
       <a  class="d-flex justify-content-between"[class.selected]="user == selectedUser" (click)="onSelectedUser(user)">
         <div class="d-flex flex-row">
           <img [src]="user.image" alt="avatar"
             class="rounded-circle avatar d-flex align-self-center me-3 shadow-1-strong">
           <div class="pt-1">
-            <p class="fw-bold mb-0">{{user.username}}</p>
+            <p class="fw-bold texr-dark mb-0 "style="color:black;">{{user.username}}</p>
           </div>
         </div>
         <div class="pt-1">
@@ -23,12 +28,14 @@
         </div>
       </a>
     </li>
-  </ul>
+  </ul> -->
   </div>
 
+
   <div class="contain w-100">
-    <header class="head pb-0">
-      <div class="d-flex p-2 mt-2" *ngIf="selectedUser" >
+    <header class="head pb-0" *ngIf="selectedUser">
+
+      <div class="d-flex pb-3 mt-2" style="padding-left: 12px;">
         <img [src]="selectedUser.image" alt="" class="profile">
 
         <div class="container">
@@ -37,43 +44,52 @@
         </div>
       </div>
       <hr>
-      <!-- <div class="vh-50">
-        <div class="msg-container d-flex mb-2" *ngFor="let msg of msgList">
-          <div class="p-2" [ngClass]="{'msg-box-right': msg.sender === currentUser.Username, 'msg-box-left': msg.sender !== currentUser.Username}">
-            <p>{{ msg.text }}</p>
-          </div>
+
+      <div class="home-chats">
+        <div class="container-fluid" *ngFor="let msg of msgList">
+                <div class="container-m" >
+                  <div class="contaier " *ngIf= "msg.sender !== currentUser.username">
+                    <div class="arrow" >
+                      <div class="outer"></div>
+                      <div class="inner"></div>
+                    </div>
+                    <div class="message-body">
+                      <p> {{msg.text}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="container-m " >
+                  <div class="contaier mt-10" *ngIf= "msg.sender == currentUser.username">
+                    <div class="message-body-2 ">
+                      <p> {{msg.text}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="headerr" *ngIf="!msgList">
+                  Select Chats
+                </div>
         </div>
-      </div>       -->
-      
-      <div class="container mb-2" *ngFor="let msg of msgList">
-          <div class="row " >
-          <p class=" " *ngIf= "msg.sender == currentUser.username">
-            {{msg.text}}
-          </p>
-          </div>
-          <div class="row justify-content-end" >
-            <p class=" w-50 " *ngIf="msg.sender !== currentUser.username">{{msg.text}}</p>
-            
-          </div>
-          <!-- <div class="p-2" [ngClass]="{'msg-box': true, 'msg-box-sender': msg.sender === 'currentUser', 'msg-box-other': msg.sender !== 'currentUser'}">
-            <p>{{ msg.text }}</p>
-          </div> -->
-        
       </div>
 
-      <hr>
-      <div class="container d-flex">
+
+
+      <footer class="container d-flex ">
         <input type="text" class="message-text w-100 " [(ngModel)]="message">
         <button class="btn bg-dark  send text-white" (click)="sendMessage()">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
             <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
           </svg>
         </button>
-      </div>
+      </footer>
 
     </header>
 
-  </div> 
+    <div class="headerr" *ngIf="!selectedUser">
+      Select Chats
+    </div>
+
+  </div>
 </div>
 
 
