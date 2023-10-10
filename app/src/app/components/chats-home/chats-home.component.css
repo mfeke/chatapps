@@ -55,7 +55,7 @@ input{
 }
 .send{
     margin-left: 20px;
-    background-color: #fdfcfc;
+    background-color: #e6dfdf;
 }
 .msg-profile{
     width: 40px;
@@ -210,12 +210,47 @@ input{
   left: 2px;
 }
 
+
+.container-m .arrow-2 {
+  transform: rotate(180deg);
+  width: 12px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+  float: right;
+  top: 6px;
+  right: 1px;
+}
+
+.container-m .arrow-2 .outer {
+  width: 0;
+  height: 0;
+  border-right: 20px solid #000000;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container-m .arrow-2 .inner {
+  width: 0;
+  height: 0;
+  border-right: 20px solid #4df3c1;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 2px;
+}
+
+
 .container-m .message-body {
   float: left;
   width: 300px;
   height: auto;
   /* border: 1px solid #CCC; */
-  background-color: #dfd5d5;
+  background-color: #dbd4d4;
   border: 1px solid #000000;
   padding: 6px 8px;
   -webkit-border-radius: 5px;
@@ -223,18 +258,34 @@ input{
   -o-border-radius: 5px;
   border-radius: 5px;
 }
+.if{
+  /* float: right; */
+  /* width: auto;
+  height: auto;
+  display: flex;
+  max-width: 300px; */
+  transform: scaleY(1.5);
+
+    /* position: relative; */
+  /* left: 1064px;
+  top:-5px ; */
+  border-left: white 1px solid;
+  font-size: 23px ;
+  
+  
+}
 
 
-.container-m .message-body-2   {
+.container-m .message-body-2 {
   float: right;
   width: auto;
   height: auto;
   display: flex;
-  max-width: 300px;
+  min-width: 100px;
 
   flex-direction: column;
 
-  background-color: #d4c6c6;
+  background-color: #4df3c1;
   border: 1px solid #000000;
   /* padding: 4px 3px; */
   border-radius: 8px;
@@ -283,3 +334,5 @@ cursor: pointer;
     display: flex;
     justify-content: center;
 }
+
+
