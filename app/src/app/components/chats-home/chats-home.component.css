@@ -165,6 +165,7 @@ input{
   display: flex;
   flex-direction: column;
   gap: 10px;
+
 }
 
 .home-chats{
@@ -284,6 +285,6 @@ cursor: pointer;
 
 
 .d-flex{
-  background-color:whitesmoke;
+  background-color:lightgray;
 }
 
