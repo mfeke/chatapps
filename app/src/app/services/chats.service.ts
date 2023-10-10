@@ -26,8 +26,13 @@ export class ChatsService {
     return this.http.post<any>(apiUrl, {from,to, message}, httpOptions);
   }
   getMessage (): Observable<any> {
-    const apiUrl = `${this.api}/getMessage`;
+    const apiUrl = `${this.api}getMessage`;
     return this.http.get<any>(apiUrl);
+  }
+  
+  deteleMessageById(id:number): Observable<any> {
+    const apiUrl = `${this.api}delete/${id}`;
+    return this.http.delete<any>(apiUrl);
   }
   
   login(username: string, password: string): Observable<any> {

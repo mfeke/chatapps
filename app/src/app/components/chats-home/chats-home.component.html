@@ -1,7 +1,32 @@
-<app-sidebar></app-sidebar>
+<div id="p-0 " >
+  <div class="l-navbar bg-light">
+    <nav class=" nav navbar " >
+          <div>
+              <div class="nav_list">
+                <a class="nav_link active"> 
+                  <i class='bx bx-grid-alt nav_icon'></i>  
+                </a>
+                <a  (click)="onChat()" class="nav_link"> 
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M3.5 8a5.5 5.5 0 1 1 8.596 4.547 9.005 9.005 0 0 1 5.9 8.18.751.751 0 0 1-1.5.045 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.499-.044 9.005 9.005 0 0 1 5.9-8.181A5.496 5.496 0 0 1 3.5 8ZM9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm8.29 4c-.148 0-.292.01-.434.03a.75.75 0 1 1-.212-1.484 4.53 4.53 0 0 1 3.38 8.097 6.69 6.69 0 0 1 3.956 6.107.75.75 0 0 1-1.5 0 5.193 5.193 0 0 0-3.696-4.972l-.534-.16v-1.676l.41-.209A3.03 3.03 0 0 0 17.29 8Z"></path></svg></a>
+                <a href="#" class="nav_link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M4.801 3.57A1.75 1.75 0 0 1 6.414 2.5h11.174c.702 0 1.337.42 1.611 1.067l3.741 8.828c.04.092.06.192.06.293v7.562A1.75 1.75 0 0 1 21.25 22H2.75A1.75 1.75 0 0 1 1 20.25v-7.5c0-.1.02-.199.059-.291L4.8 3.571ZM6.414 4a.25.25 0 0 0-.23.153L2.88 12H8a.75.75 0 0 1 .648.372L10.18 15h3.638l1.533-2.628a.75.75 0 0 1 .64-.372l5.13-.051-3.304-7.797a.25.25 0 0 0-.23-.152ZM21.5 13.445l-5.067.05-1.535 2.633a.75.75 0 0 1-.648.372h-4.5a.75.75 0 0 1-.648-.372L7.57 13.5H2.5v6.75c0 .138.112.25.25.25h18.5a.25.25 0 0 0 .25-.25Z"></path></svg> 
+                </a>
+                <a (click)="onProfile()" class="nav_link">  
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path></svg>
+                </a>
+              </div>
+           </div>
+           <div class="lo  ">
+            <a class="nav_link logout" (click)=" Logout()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M3 3.25c0-.966.784-1.75 1.75-1.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.25.25 0 0 0-.25.25v17.5c0 .138.112.25.25.25h5.5a.75.75 0 0 1 0 1.5h-5.5A1.75 1.75 0 0 1 3 20.75Zm9.994 9.5 3.3 3.484a.75.75 0 0 1-1.088 1.032l-4.5-4.75a.75.75 0 0 1 0-1.032l4.5-4.75a.75.75 0 0 1 1.088 1.032l-3.3 3.484h8.256a.75.75 0 0 1 0 1.5Z"></path></svg> </a>
+
+           </div>
+    </nav>
+</div>
+</div>
 <div class="d-flex">
-  <div class="container-f bl pt-2" style=" margin-left:100px; width: 350px;">
-    <h4 class="mt-2">Chats</h4>
+  <div class="container-f bl " style=" width: 350px;"  >
+    <div class="container"  style="padding-left: 100px;" *ngIf="chatlink">
+      <h4 class="mt-2">Chats</h4>
 
     <input type="text" id="search-input" class=" sele mt-2 mb-3" placeholder="Search contacts" >
     <ul class="list-unstyled mt-1 "  *ngFor="let user of Users">
@@ -10,31 +35,26 @@
         class="rounded-circle avatar d-flex align-self-center me-1 shadow-1-strong">
         <p class="fw-bold texr-dark mb-0 "style="color:black;">{{user.username}}</p>
       </li>
-    </ul>
-    <!-- <input type="text" id="search-input" class="p-1" placeholder="Search contacts" > -->
-  <!-- <ul class="list-unstyled mb-0 mi mt-4"  *ngFor="let user of Users" >
-    <li class="p-2 box sele border-bottom" style="background-color: #eee;" >
-      <a  class="d-flex justify-content-between"[class.selected]="user == selectedUser" (click)="onSelectedUser(user)">
-        <div class="d-flex flex-row">
-          <img [src]="user.image" alt="avatar"
-            class="rounded-circle avatar d-flex align-self-center me-3 shadow-1-strong">
-          <div class="pt-1">
-            <p class="fw-bold texr-dark mb-0 "style="color:black;">{{user.username}}</p>
-          </div>
-        </div>
-        <div class="pt-1">
-          <p class="small text-muted mb-1"></p>
-          <span class="badge bg-danger float-end"></span>
-        </div>
-      </a>
-    </li>
-  </ul> -->
+    </ul> 
+      
+    </div> 
+    <div class="containe bg-dark" *ngIf="profilelink" style="padding-left: 80px; width: 350px; height: 100%;" >
+      <div class="container vh-30 pt-2" >
+       <h5 style="text-align: end;">My Profile</h5>
+       <div class="container img-container">
+        <img [src]="currentUser.image" alt="" class="profile-imag mt-3">
+       </div>
+      </div>
+      <div class="container">
+        <p class="text-white pt-5" style="text-align: center;">{{currentUser.username}}</p>
+        <p class="text pt-1" style="text-align: center; font-size: 15px; color: gray;">+27 93 960 1234</p>
+      </div>
+    </div>
   </div>
 
 
   <div class="contain w-100">
     <header class="head pb-0" *ngIf="selectedUser">
-
       <div class="d-flex pb-3 mt-2" style="padding-left: 12px;">
         <img [src]="selectedUser.image" alt="" class="profile">
 
@@ -61,7 +81,7 @@
 
                 <div class="container-m " >
                   <div class="contaier mt-10" *ngIf= "msg.sender == currentUser.username">
-                    <div class="message-body-2 ">
+                    <div class="message-body-2 " (click)="deteleMessage(msg)">
                       <p> {{msg.text}}</p>
                     </div>
                   </div>
@@ -71,9 +91,6 @@
                 </div>
         </div>
       </div>
-
-
-
       <footer class="container d-flex ">
         <input type="text" class="message-text w-100 " [(ngModel)]="message">
         <button class="btn bg-dark  send text-white" (click)="sendMessage()">
@@ -82,7 +99,6 @@
           </svg>
         </button>
       </footer>
-
     </header>
 
     <div class="headerr" *ngIf="!selectedUser">

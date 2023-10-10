@@ -17,7 +17,8 @@ export class ChatsHomeComponent {
   selectedUser?:any
   currentUser:any
   Users:any [] = []
-
+  chatlink = true
+  profilelink = false
  
 
 
@@ -36,6 +37,7 @@ export class ChatsHomeComponent {
     this.chatService.getMessage().subscribe(data=>{
       this.container = data
     })
+    
   }
 
 
@@ -63,8 +65,16 @@ export class ChatsHomeComponent {
     }
 
   }
+ onProfile(){
+  this.chatlink = false
+  this.profilelink = true
+ }
+ onChat(){
+   this.chatlink = true
+   this.profilelink = false
 
 
+ }
 
   sendMessage():void{
     const data:any = {
@@ -77,7 +87,15 @@ export class ChatsHomeComponent {
   this.chatService.sendMessage(this.message, this.currentUser.username,this.selectedUser.username).subscribe(data =>{
     console.log(data)
   })
+  this.ChattingService.sendMessage(JSON.stringify(data))
   this.message = ''
+  }
+
+  deteleMessage(msg:any){
+    const id:number = msg._id
+    this.chatService.deteleMessageById(id).subscribe(data=>{
+      console.log(data)
+    })
   }
 
 }
