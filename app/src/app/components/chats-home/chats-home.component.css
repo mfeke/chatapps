@@ -211,7 +211,7 @@ input{
   width: 300px;
   height: auto;
   /* border: 1px solid #CCC; */
-  background-color: #00B83D;
+  background-color: white;
   border: 1px solid #000000;
   padding: 6px 8px;
   -webkit-border-radius: 5px;
@@ -230,7 +230,7 @@ input{
 
   flex-direction: column;
 
-  background-color: #19ff66;
+  background-color: #ffffff;
   border: 1px solid #000000;
   /* padding: 4px 3px; */
   border-radius: 8px;
