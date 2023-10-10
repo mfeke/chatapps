@@ -19,7 +19,6 @@ export class RegisterComponent {
 
   form= {
     username: "",
-    image: "",
     password: ""
 
   
@@ -27,8 +26,8 @@ export class RegisterComponent {
   constructor(private userService: UserService, private toastr: ToastrService, private route:Router ) { }
 
   onSubmit(): void {
-    const { username, image, password } = this.form;
-    if(!image && !password && !username){
+    const { username,  password } = this.form;
+    if( !password && !username){
       this.toastr.error('Invaid Details ');
       return
      }
@@ -41,10 +40,8 @@ export class RegisterComponent {
        return
      }
 
-     console.log(image)
    
-    console.log(101)
-    this.userService.register(username, image , password).subscribe({
+    this.userService.register(username, password).subscribe({
       next: data => {
         console.log(data);
         this.toastr.success('User was registered successfully!');
