@@ -13,6 +13,7 @@ import { ChatsHomeComponent } from './components/chats-home/chats-home.component
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     LoginComponent,
     RegisterComponent,
     SidebarComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
