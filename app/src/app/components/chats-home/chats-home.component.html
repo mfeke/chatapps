@@ -27,8 +27,8 @@
   <div class="container-f bl " style=" width: 350px;"  >
     <div class="container"  style="padding-left: 100px;" *ngIf="chatlink">
       <h4 class="mt-2">Chats</h4>
-
-    <input type="text" id="search-input" class=" sele mt-2 mb-3" placeholder="Search contacts" >
+<app-search></app-search>
+    
     <ul class="list-unstyled mt-1 "  *ngFor="let user of Users">
       <li class="d-flex box sele p-2" [class.selected]="user == selectedUser" (click)="onSelectedUser(user)" style="background-color: #eee;">
         <img [src]="user.image" alt="avatar"
