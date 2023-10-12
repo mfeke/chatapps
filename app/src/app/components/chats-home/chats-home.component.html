@@ -27,8 +27,8 @@
   <div class="container-f bl " style=" width: 350px;"  >
     <div class="container"  style="padding-left: 100px;" *ngIf="chatlink">
       <h4 class="mt-2">Chats</h4>
-<app-search></app-search>
-    
+      <app-search></app-search>
+
     <ul class="list-unstyled mt-1 "  *ngFor="let user of Users">
       <li class="d-flex box sele p-2" [class.selected]="user == selectedUser" (click)="onSelectedUser(user)" style="background-color: #eee;">
         <img [src]="user.image" alt="avatar"
@@ -38,7 +38,7 @@
     </ul>
 
     </div>
-    <div class="containe bg-dark" *ngIf="profilelink" style="padding-left: 80px; width: 350px; height: 100%;" >
+    <div class="containe  " *ngIf="profilelink" style="padding-left: 80px; width: 350px; height: 100%; background-color: lightcyan ;" >
       <div class="container vh-30 pt-2" >
        <h5 style="text-align: end;">My Profile</h5>
        <div class="container img-container">
@@ -47,7 +47,7 @@
       </div>
       <div class="container">
         <p class="text-white pt-5" style="text-align: center;">{{currentUser.username}}</p>
-        <p class="text pt-1" style="text-align: center; font-size: 15px; color: gray;">+27 93 960 1234</p>
+        <p class="text pt-1" style="text-align: center; font-size: 15px; color: black;">+27 {{currentUser.number}}</p>
       </div>
     </div>
   </div>
