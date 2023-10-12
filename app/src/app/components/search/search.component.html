@@ -1,0 +1,6 @@
+<input type="text" id="search-input" class=" sele mt-2 mb-3"  #searchBox (input)="onSearch(searchBox.value)" placeholder="Search contacts" >
+<ul>
+    <li class="FoundItem" *ngFor="let users of search$ | async">
+        {{users.username}}
+    </li>
+</ul>
