@@ -18,6 +18,7 @@ export class ChatsHomeComponent {
   currentUser:any
   Users:any [] = []
   chatlink = true
+  editlink = false
   profilelink = false
  
 
@@ -68,13 +69,22 @@ export class ChatsHomeComponent {
  onProfile(){
   this.chatlink = false
   this.profilelink = true
+  this.editlink =false
  }
  onChat(){
    this.chatlink = true
    this.profilelink = false
+   this.editlink =false
+
 
 
  }
+  onEdit(){
+    this.chatlink = false
+    this.profilelink = false
+    this.editlink =true
+
+  }
 
   sendMessage():void{
     const data:any = {

@@ -329,3 +329,14 @@ cursor: pointer;
 .bg-GR{
   background-color: #2fd8a033 ;
 }
+
+.img{
+  border-radius: 100px;
+  width: 90px;
+  height: 90px;
+}
+.w10{
+  width: 500px;
+  border: none;
+  border-bottom: 1px solid ;
+}
