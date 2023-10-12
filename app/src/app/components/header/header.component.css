@@ -24,19 +24,19 @@
 }
 .btn-fb{
     color: #fff;
-    background-color:#3b5998;
+    background-color:#4df3c1;
 }
 .btn-fb:hover{
     color: #fff;
-    background-color:#496ebc 
+    background-color:#4df3c1
 }
 .btn-tw{
     color: #fff;
-    background-color:#55acee;
+    background-color:#4df3c1;
 }
 .btn-tw:hover{
     color: #fff;
-    background-color:#59b5fa;
+    background-color:#4df3c1;
 }
 @media(max-width:768px){
     #login-dp{
