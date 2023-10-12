@@ -10,7 +10,7 @@ import {Router} from '@angular/router'; // import router from angular router
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  logo = "https://i.postimg.cc/66br41Cb/thetha-removebg-preview.png"
+  logo = "https://i.postimg.cc/66gTmTjY/logoch.png"
   email= 'Email address'
   password ="password"
   form = {
