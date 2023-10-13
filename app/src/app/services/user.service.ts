@@ -16,12 +16,12 @@ export class UserService {
   api = "http://localhost:3300/chat/"
 
   constructor( private http: HttpClient, private tokenService: TokenstorageService) { }
-  
+
 
   login(username: string, password: string): Observable<any> {
     return this.http.post<any>(this.api+ 'signIn', { username,password}, httpOptions);
   }
-  
+
   gethome():Observable<any>{
     return this.http.get<any>(this.api+ 'get', httpOptions);
 
@@ -43,23 +43,28 @@ export class UserService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-  
+
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-  
+
       // TODO: better job of transforming error for user consumption
       console.log(`${operation} failed: ${error.message}`);
-  
+
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }
- 
+
 
   register(username: string,  password: string): Observable<any> {
     return this.http.post(this.api+ 'signUp', {
       username,
       password,
     }, httpOptions);
+  }
+
+
+  update(id:string , username: string, number: number, email: string, image:string): Observable<any> {
+    return this.http.put<any>(this.api+ `updateUser/${id}`,{ username,email, number, image}, httpOptions);
   }
 }

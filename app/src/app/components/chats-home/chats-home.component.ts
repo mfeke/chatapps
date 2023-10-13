@@ -1,5 +1,6 @@
+import { UserService } from 'src/app/services/user.service';
 import { Component } from '@angular/core';
-import { concatAll, from } from 'rxjs';
+import { Observable, concatAll, from, subscribeOn } from 'rxjs';
 import { ChatsService } from 'src/app/services/chats.service';
 import { ChattingService } from 'src/app/services/chatting.service';
 import { TokenstorageService } from 'src/app/services/tokenstorage.service';
@@ -20,10 +21,11 @@ export class ChatsHomeComponent {
   chatlink = true
   editlink = false
   profilelink = false
- 
+  http: any;
 
 
-  constructor( private tokenService: TokenstorageService, private chatService: ChatsService, private ChattingService: ChattingService){}
+
+  constructor(  private userService: UserService, private tokenService: TokenstorageService, private chatService: ChatsService, private ChattingService: ChattingService){}
 
 
   ngOnChanges() {
@@ -38,7 +40,7 @@ export class ChatsHomeComponent {
     this.chatService.getMessage().subscribe(data=>{
       this.container = data
     })
-    
+
   }
 
 
@@ -107,5 +109,18 @@ export class ChatsHomeComponent {
       console.log(data)
     })
   }
+  update(){
+    // const id = this.currentUser.id
+    // console.log(id)
+    this.userService.update(this.currentUser.id, this.currentUser.username, this.currentUser.email, this.currentUser.image,this.currentUser.number).subscribe(data=>{
+      console.log(data)
+    })
+  }
+  // update(username: string, number: number, ema:il: string): Observable<any> {
+  //   return this.http.put<any>(this.api+ 'profile', { username,number, email}, httpOptions);
+  // }
+  }
 
-}
+
+
+
