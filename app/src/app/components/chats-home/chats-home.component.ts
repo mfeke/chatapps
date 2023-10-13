@@ -110,11 +110,21 @@ export class ChatsHomeComponent {
     })
   }
   update(){
-    // const id = this.currentUser.id
-    // console.log(id)
+    const id = this.currentUser.id
+    console.log(this.currentUser.id)
+    const user = {
+      id: this.currentUser.id,
+       username:this.currentUser.username ,
+        number:this.currentUser.number ,
+         image:this.currentUser.image
+    
+    }
     this.userService.update(this.currentUser.id, this.currentUser.username, this.currentUser.email, this.currentUser.image,this.currentUser.number).subscribe(data=>{
       console.log(data)
     })
+    this.tokenService.saveUser(user)
+   window.location.reload()
+
   }
   // update(username: string, number: number, ema:il: string): Observable<any> {
   //   return this.http.put<any>(this.api+ 'profile', { username,number, email}, httpOptions);

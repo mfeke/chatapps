@@ -18,7 +18,7 @@ export class LoginComponent {
     password: ""
   }
   roles: string[] = [];
-  constructor(private userService : UserService , private tokenStorage: TokenstorageService, 
+  constructor(private userService : UserService , private tokenStorage: TokenstorageService,
     private toastr: ToastrService, private route:Router ){}
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class LoginComponent {
       this.roles = this.tokenStorage.getUser().roles;
       console.log(this.roles)
     }
-   
+
   }
 
   Login():void {
@@ -38,10 +38,11 @@ export class LoginComponent {
         this.tokenStorage.saveUser(data);
         this.toastr.success('User is successfully Login!');
         this.route.navigate(['/home']);
+        
 
       }
     })
 
   }
-  
+
 }
