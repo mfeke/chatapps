@@ -116,12 +116,12 @@ export class ChatsHomeComponent {
       id: this.currentUser.id,
        username:this.currentUser.username ,
         number:this.currentUser.number ,
-         image:this.currentUser.image
-    
+         image:this.currentUser.image,
+         email: this.currentUser.email
+
     }
-    this.userService.update(this.currentUser.id, this.currentUser.username, this.currentUser.email, this.currentUser.image,this.currentUser.number).subscribe(data=>{
-      console.log(data)
-    })
+    this.userService.update(user.id, user.username, user.number,user.email
+      ,user.image).subscribe( data=>  console.log(data)  )
     this.tokenService.saveUser(user)
    window.location.reload()
 
