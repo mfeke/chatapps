@@ -3,3 +3,10 @@
    border-radius: 10px;
    background-color: gray;
 }
+
+.avatar{
+    width: 40px;
+    }
+.box{
+    border-radius: 10px;
+}

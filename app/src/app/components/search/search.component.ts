@@ -29,6 +29,7 @@ export class SearchComponent {
       // switch to new search observable each time the term changes
       switchMap((term: string) => this.userService.search(term)),
     );
+    console.log(this.search$)
  
 }
   

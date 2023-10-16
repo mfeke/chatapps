@@ -1,6 +1,19 @@
 <input type="text" id="search-input" class=" sele mt-2 mb-3"  #searchBox (input)="onSearch(searchBox.value)" placeholder="Search contacts" >
-<ul>
+<!-- <ul>
     <li class="FoundItem" *ngFor="let users of search$ | async">
         {{users.username}}
     </li>
-</ul>
+</ul> -->
+
+
+<ul class="list-unstyled mt-1 "  >
+    <span *ngIf="search$ | async">searched:</span>
+    <li class="d-flex box sele p-2" style="background-color: #eee;" *ngFor="let users of search$ | async">
+      <img [src]="users.image" alt="avatar"
+      class="rounded-circle avatar d-flex align-self-center me-1 shadow-1-strong">
+      <p class="fw-bold texr-dark mb-0 "style="color:black;" *ngIf="users">{{users.username}}</p>
+      
+    </li>
+
+  </ul>
+  <hr>
