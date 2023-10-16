@@ -36,6 +36,7 @@ export class LoginComponent {
         console.log(data)
         this.tokenStorage.saveToken(data.accesstoken);
         this.tokenStorage.saveUser(data);
+        this.tokenStorage.saveOnlineUSER(data)
         this.toastr.success('User is successfully Login!');
         this.route.navigate(['/home']);
         
