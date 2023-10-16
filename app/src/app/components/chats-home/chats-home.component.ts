@@ -32,11 +32,16 @@ export class ChatsHomeComponent {
   }
   ngOnInit(): void {
     this.currentUser = this.tokenService.getUser();
-    console.log(this.currentUser)
     this.getAllUser()
-
     this.chatService.getMessage().subscribe(data=>{
       this.container = data
+    })
+    this.ChattingService.getNewMessage().subscribe((data:string)=>{
+      if(data){
+        console.log(JSON.parse(data))
+        this.msgList.push(JSON.parse(data))
+
+      }
     })
     
   }
@@ -60,9 +65,9 @@ export class ChatsHomeComponent {
     if(this.selectedUser){
       let array = []
 
-      array = this.container.filter((data:any)=> data.users.some((x:any)=> x == this.selectedUser.username &&this.currentUser.username))
+      array = this.container.filter((data:any)=> data.users.some((x:any)=> x === this.selectedUser.username))
+      array = array.filter((data:any)=> data.users.some((x:any)=> x === this.currentUser.username))
       this.msgList = array
-      console.log(array)
     }
 
   }
@@ -92,11 +97,9 @@ export class ChatsHomeComponent {
       users:[this.currentUser.username, this.selectedUser.username],
       sender:this.currentUser.username
     }
-    this.msgList.push(data)
-    console.log(data)
+    // this.msgList.push(data)
   this.chatService.sendMessage(this.message, this.currentUser.username,this.selectedUser.username).subscribe(data =>{
-    console.log(data)
-  })
+    })
   this.ChattingService.sendMessage(JSON.stringify(data))
   this.message = ''
   }

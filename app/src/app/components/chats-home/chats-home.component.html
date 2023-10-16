@@ -97,7 +97,7 @@
       <div class="home-chats">
         <div class="container-fluid" *ngFor="let msg of msgList">
                 <div class="container-m" >
-                  <div class="contaier " *ngIf= "msg.sender !== currentUser.username">
+                  <div class="contaier " *ngIf= "msg.sender !== currentUser.username ">
                     <div class="arrow" >
                       <div class="outer"></div>
                       <div class="inner"></div>
@@ -126,7 +126,6 @@
         </div>
       </div>
       <footer class="container d-flex ">
-
         <input type="text" class="message-text w-100 " [(ngModel)]="message">
         <button class="btn bg-dark  send text-white" (click)="sendMessage()">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
