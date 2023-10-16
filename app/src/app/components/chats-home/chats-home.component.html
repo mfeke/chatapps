@@ -24,7 +24,7 @@
 </div>
 </div>
 <div class="d-flex">
-  <div class="container-f bl " style=" width: 350px;"  >
+  <div class="container-f bl "   >
     <div class="p-i " style="padding-left: 90px;" *ngIf="editlink">
       <div class="edit-container vh-100 " >
         <button class="btn d-flex w-100" style="justify-content: end;" (click)="update()">
@@ -59,15 +59,15 @@
           </div>
       </div>
   </div>
-    <div class="container"  style="padding-left: 100px;" *ngIf="chatlink">
-      <h4 class="mt-2">Chats</h4>
-      <app-search></app-search>
+    <div class="container "  style="padding-left: 100px;" *ngIf="chatlink">
+      <h4 class="mt-2 allUser  ">Chats</h4>
+      <app-search class="allUser"></app-search>
 
     <ul class="list-unstyled mt-1 "  *ngFor="let user of Users">
-      <li class="d-flex box sele p-2" [class.selected]="user == selectedUser" (click)="onSelectedUser(user)" style="background-color: #eee;">
-        <img [src]="user.image" alt="avatar"
+      <li class="d-flex box sele bg p-2" [class.selected]="user == selectedUser" (click)="onSelectedUser(user)" >
+        <img [src]="user.image" alt="avatar" (click)="onSelectedUser(user)" title="{{user.username}}"
         class="rounded-circle avatar d-flex align-self-center me-1 shadow-1-strong">
-        <p class="fw-bold texr-dark mb-0 "style="color:black;">{{user.username}}</p>
+        <p class="fw-bold texr-dark mb-0 allUser "style="color:black;">{{user.username}}</p>
       </li>
     </ul>
 
@@ -105,9 +105,9 @@
       <hr>
 
       <div class="home-chats">
-        <div class="container-fluid" *ngFor="let msg of msgList">
-                <div class="container-m" >
-                  <div class="contaier " *ngIf= "msg.sender !== currentUser.username ">
+        <div class="container-fluid mb-2" *ngFor="let msg of msgList">
+                <div class="container-m mb-2 " >
+                  <div class="contaier  " *ngIf= "msg.sender !== currentUser.username ">
                     <div class="arrow" >
                       <div class="outer"></div>
                       <div class="inner"></div>
@@ -119,8 +119,8 @@
                 </div>
 
 
-                <div class="container-m w-100" >
-                  <div class="contaier mt-10" *ngIf= "msg.sender == currentUser.username">
+                <div class="container-m  w-100"  >
+                  <div class="contaier "  *ngIf= "msg.sender == currentUser.username">
                     <div class="arrow-2" >
                       <div class="outer"></div>
                       <div class="inner"></div>

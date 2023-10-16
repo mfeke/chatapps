@@ -249,6 +249,8 @@ input{
   float: left;
   width: 300px;
   height: auto;
+  overflow-wrap: break-word;
+
   /* background-color: #a79d9d; */
   border: 1px solid #000000;
   padding: 6px 8px;
@@ -340,3 +342,28 @@ cursor: pointer;
   border: none;
   border-bottom: 1px solid ;
 }
+.bg{
+  background-color: #eee;
+}
+
+@media screen and (max-width: 768px) {
+
+  .allUser {
+    display: none;
+    width: 20px;
+  }
+  .container-f{
+    width: 100px;
+
+  }
+  .bg{
+    background-color:white;
+  }
+  .avatar{
+    position: fixed;
+    left: 20px;
+    border: 1px black solid;
+  }
+
+}
+
