@@ -3,8 +3,8 @@
     <nav class=" nav navbar " >
           <div>
               <div class="nav_list">
-                <a class="nav_link active"> 
-                  <i class='bx bx-grid-alt nav_icon'></i>  
+                <a class="nav_link active">
+                  <i class='bx bx-grid-alt nav_icon'></i>
                 </a>
                 <a  (click)="onChat()" class="nav_link" title="Contacts">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M3.5 8a5.5 5.5 0 1 1 8.596 4.547 9.005 9.005 0 0 1 5.9 8.18.751.751 0 0 1-1.5.045 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.499-.044 9.005 9.005 0 0 1 5.9-8.181A5.496 5.496 0 0 1 3.5 8ZM9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm8.29 4c-.148 0-.292.01-.434.03a.75.75 0 1 1-.212-1.484 4.53 4.53 0 0 1 3.38 8.097 6.69 6.69 0 0 1 3.956 6.107.75.75 0 0 1-1.5 0 5.193 5.193 0 0 0-3.696-4.972l-.534-.16v-1.676l.41-.209A3.03 3.03 0 0 0 17.29 8Z"></path></svg></a>
@@ -26,11 +26,17 @@
 <div class="d-flex">
   <div class="container-f bl " style=" width: 350px;"  >
     <div class="p-i " style="padding-left: 90px;" *ngIf="editlink">
-      <div class="edit-container vh-100 pt-5" >
+      <div class="edit-container vh-100 " >
+        <button class="btn d-flex w-100" style="justify-content: end;" (click)="update()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+          </svg>
+        </button>
           <div class="container mb-5 d-flex justify-content-center">
               <img [src]="currentUser.image" alt="" class="img">
           </div>
-  
+
           <div class="container  d-flex justify-content-center">
               <div class="container">
                   <div class="form-group mb-4 ">
@@ -41,6 +47,10 @@
                       <p for="">Number</p>
                       <input type="text" lass="form-contro w10" [(ngModel)]="currentUser.number" style="width: 200px;border-radius: 0px;  border: none; border-bottom: 1px  solid black;" placeholder="+27 892 772 8272">
                   </div>
+                  <div class="form-group mb-4">
+                    <p for="">Image</p>
+                    <input type="text" lass="form-contro w10" [(ngModel)]="currentUser.image" style="width: 200px;border: none; border-radius: 0px; border-bottom: 1px  solid black;" placeholder="jasonmomoa@gmail.om">
+                </div>
                   <div class="form-group mb-4">
                       <p for="">Email</p>
                       <input type="text" lass="form-contro w10" [(ngModel)]="currentUser.email" style="width: 200px;border: none; border-radius: 0px; border-bottom: 1px  solid black;" placeholder="jasonmomoa@gmail.om">
@@ -66,7 +76,7 @@
       <div class="container vh-30 pt-2" >
         <div class="d-flex" style="justify-content: space-between;">
           <h5 style="text-align: end;">My Profile</h5>
-          <a style="height: 50px; color:black;"  (click)="onEdit()"> 
+          <a style="height: 50px; color:black;"  (click)="onEdit()">
             <svg xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" class="bi  bi-pencil" viewBox="0 0 16 16">
                 <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
             </svg>
@@ -142,6 +152,9 @@
 
   </div>
 </div>
+
+
+
 
 
 
